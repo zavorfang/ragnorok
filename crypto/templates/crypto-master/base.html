@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}{% endblock %}
+    <meta charset="UTF-8">
+    <meta name="description" content="{{ appname }} Landing Page">
+    <meta name="keywords" content="{{ appname }}, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="{{ url_for('static', filename='crypto-master/img/favicon.ico') }}" rel="shortcut icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='crypto-master/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/partners.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='crypto-master/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='crypto-master/css/themify-icons.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='crypto-master/css/animate.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='crypto-master/css/owl.carousel.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='crypto-master/css/style.css') }}" />
+
+
+    <!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header section -->
+    <header class="header-section clearfix">
+        <div class="container-fluid">
+            <a href="index.html" class="site-logo">
+                <img src="{{ url_for('static', filename='crypto-master/img/logo.png') }}" alt="">
+            </a>
+            <div class="responsive-bar"><i class="fa fa-bars"></i></div>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('signout') }}" class="user"><i class="fa fa-sign-out"></i> Sign Out</a>
+                <a href="{{ url_for('signout') }}" class="site-btn bordersign">Sign Out</a>
+                <a href="{{ url_for('index') }}" class="user"><i class="fa fa-user"></i> Account</a>
+            {% else %}
+                <a href="{{ url_for('signin') }}" class="user"><i class="fa fa-user"></i> Account</a>
+                <a href="{{ url_for('signup') }}" style="margin-left: 10px; padding: 15px 0px;" class="site-btn bordersign">Sign Up
+                Free</a>
+                <a href="{{ url_for('signin') }}" class="no-border site-btn">Sign In Now</a>
+            {% endif %}
+            <nav class="main-menu">
+                <ul class="menu-list">
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#news">News</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header section end -->
+
+    {% block body %}{% endblock %}
+
+
+
+    <!-- Footer section -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <span>
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | {{ appname
+                            }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <ul class="footer-nav">
+                            <li><a href="{{ url_for('privacy') }}">Fees</a></li>
+                            <li><a href="{{ url_for('privacy') }}">FAQs</a></li>
+                            <li><a href="{{ url_for('privacy') }}">DPA</a></li>
+                            <li><a href="{{ url_for('terms') }}">Terms of Use</a></li>
+                            <li><a href="">support@company.com</a></li>
+                            <li><a href="">(123) 456-7890</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row footersmall">
+                    <div class="col-12 text-center">
+                        <span class="">
+                            {{ appname }} Europe is not a regulated financial service provider and is not registered
+                            with or regulated or authorised by the Central Bank of England, the Competition Consumer and
+                            Protection Commission or any other regulatory body in England for financial services and so
+                            you will not be able to avail of regulatory protections associated with such regulated
+                            entities such as investor or deposit protection schemes or access to the Financial Services
+                            and Pensions Ombudsman in relation to the Digital Currency Services.
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <style>
+        .menu-list li a,
+        .site-btn {
+            color: #20509e;
+            font-size: 19px;
+            font-weight: 800;
+            border-radius: 3px;
+        }
+
+        .site-btn {
+            border: 2px solid;
+            transition: .4s linear;
+        }
+
+        .site-btn.no-border {
+            border: 0;
+            border-bottom: 2px solid;
+            background:rgba(80, 80, 80, 0);
+        }
+
+        .site-btn:hover {
+            border-radius: 7px;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        .site-btn.no-border:hover {
+            background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 35%, rgba(0,212,255,0) 100%);
+        }
+
+        .site-btn.bordersign:hover {
+            background-color:rgba(54, 54, 54, 0.719);
+            color: rgb(255, 255, 255);
+        }
+
+        .site-btn.sb-gradients {
+            background-color:rgba(80, 80, 80, 0.0)
+        }
+
+        .footer-section .container {
+            padding-bottom: 25px;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .header-section .user {
+                font-size: 23px;
+            }
+        }
+
+        .footersmall {
+            padding-top: 20px;
+            color: rgba(80, 80, 80, 0.312);
+            font-size: 10px;
+        }
+    </style>
+    <!--====== Javascripts & Jquery ======-->
+    <script src="{{ url_for('static', filename='crypto-master/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='crypto-master/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='crypto-master/js/main.js') }}"></script>
+    <!-- ClickDesk Live Chat Service for websites -->
+    <script type='text/javascript'>
+        var _glc = _glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyEgsSBXVzZXJzGICAiOfozI0LDA');
+        var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' :
+            'http://my.clickdesk.com/clickdesk-ui/browser/');
+        var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+        var glcspt = document.createElement('script'); glcspt.type = 'text/javascript';
+        glcspt.async = true; glcspt.src = glcpath + 'livechat-cloud-new.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(glcspt, s);
+    </script>
+    <!-- End of ClickDesk -->
+
+</body>
+
+</html>

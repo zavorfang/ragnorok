@@ -1,0 +1,136 @@
+{% extends 'dist/base.html' %}
+{% block head %}
+<title>Wallet
+</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="main-content container-fluid">
+
+    <div class="page-title">
+        <h3>Welcome, sanji</h3>
+    </div>
+    <section id="card-caps">
+        <div class="row">
+            <div class="col-12 ">
+                <div class="card  border border-secondary">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row justify-content-end">
+                                <div class="col-3">
+                                    <img src="{{ url_for('static', filename='crypto-master/img/bitcoin.png') }}" class="withbtc">
+                                </div>
+                                <div class="col-auto text-left"><p style="margin-bottom: 0px;"> free bitcoin with {{ appname }} </p></div>
+                                <div class="col-auto buttons">
+                                    <a href="#" class="btn btn-outline-secondary">Buy Asset</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="card-caps ">
+        <div class="row justify-content-md-center">
+
+            <div class="col-md-4 col-sm-12">
+                <div class="card text-center">
+                    <div class="card-content">
+                        <div class="card-header border-bottom">Available Balance</div>
+                        <div class="card-body">
+                            <h1 class="card-text">$456 </h1>
+                            <h3 class="card-title">USD</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4>Your Earnings</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center mb-5" style="margin-bottom: 0px !important;">
+                            <h6>From last month</h6>
+                            <h1 class='text-green'>+$2,134</h1>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="card text-center">
+                    <div class="card-header">Available Balance</div>
+                    <div class="card-body">
+                        <h1>₿0.000456</h1>
+                        <h3 class="card-title">BTC</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Basic Tables start -->
+    <div class="row justify-content-md-center" id="basic-table">
+        <div class="col-12 col-md-9">
+            <div class="card">
+                <div class="card-header border-bottom" style="padding-bottom: 5px;">
+                    <h3 class="card-title">Your Assets</h3>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <p class="card-text">You don’t own any crypto. Send yourself some crypto to get started.
+                        </p>
+                        <!-- Table with outer spacing -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>INTEREST ACCRUED</th>
+                                        <th>RATE</th>
+                                        <th>CAPITAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-bold-500">$45/₿0.0000183</td>
+                                        <td>10%/day</td>
+                                        <td class="text-bold-500">$150/₿0.000063</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Basic Tables end -->
+
+    <div class="embed-responsive embed-responsive-21by9" style="margin-bottom: 10px;">
+        <iframe src="https://widget.coinlib.io/widget?type=chart&amp;theme=light&amp;coin_id=859&amp;pref_coin_id=1505" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
+    </div>
+    
+    <div class="embed-responsive embed-responsive-21by9">
+        <iframe src="https://widget.coinlib.io/widget?type=full_v2&amp;theme=light&amp;cnt=6&amp;pref_coin_id=1505&amp;graph=yes" width="100%" height="536px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;line-height:14px;"></iframe>
+    </div>
+
+</div>
+
+<style>
+    .embed-responsive {
+        border: 1px solid;
+        border-color: #d9dadb;
+        border-radius: 4px;
+    }
+    .withbtc {
+        max-width: 90%;
+    }
+</style>
+
+{% endblock %}

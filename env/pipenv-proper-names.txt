@@ -1,0 +1,10 @@
+Flask
+Flask-Bcrypt
+Flask-Login
+Flask-SQLAlchemy
+Flask-WTF
+Jinja2
+MarkupSafe
+SQLAlchemy
+Werkzeug
+WTForms
